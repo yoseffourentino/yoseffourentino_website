@@ -37,7 +37,7 @@ export default function Experience() {
                             <div className="max-w-[850px]">
                                 <h2 className="creato-bold font-bold text-[14px]
                                 2xl:text-[26px]
-                                ">Frontend & Developer Bootcamp at Dicoding Indonesia</h2>
+                                ">Frontend & Backend Developer Bootcamp at Dicoding Indonesia</h2>
                                 <p className="creato-regular text-[12px]
                                 2xl:text-[20px]
                                 ">Studying many modules such as the basics of Git and GitHub, basic JavaScript programming, beginner front-end web development, front-end web fundamentals, front-end web expert, and back-end application development for beginners.</p>
