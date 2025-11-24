@@ -1,5 +1,6 @@
 import giatAI from "../assets/giatAI.png"
 import bMusicStudio from "../assets/bMusicStudio.png"
+import arscent from "../assets/arscent.png"
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -23,6 +24,13 @@ export default function Portfolio() {
             title: "B Music Studio",
             image: bMusicStudio,
             link: "https://www.bmusicstudio.com/" 
+        },
+        {
+            id: 3,
+            title: "Arscent E-Commerce",
+            image: arscent,
+            link: "https://arscent.vercel.app/"
+
         }
     ]
     
@@ -44,10 +52,7 @@ export default function Portfolio() {
                         ))}
                     </div>
                 </div> */}
-                <Carousel opts={{
-                    align: "start",
-                    }} 
-                    className="flex-auto">
+                <Carousel className="w-full">
                     <CarouselContent className="p-4 gap-6">
                         {PortfolioData.map((item) => (
                             <CarouselItem key={item.id} className="flex flex-col max-w-[450px]">
