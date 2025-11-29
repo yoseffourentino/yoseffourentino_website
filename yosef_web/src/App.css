@@ -99,6 +99,7 @@ background: linear-gradient(180deg, rgba(235, 235, 235, 1) 0%, rgba(255, 237, 17
     transition: 0.3sq;
 }
 
+
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);

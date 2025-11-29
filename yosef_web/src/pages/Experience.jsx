@@ -1,18 +1,88 @@
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Experience() {
+
+useGSAP(() => {
+
+    // Title
+    gsap.from(".expTitle", {
+        opacity: 0,
+        y: -40,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".expTitle",
+            start: "top 85%",
+            toggleActions: "restart none none reverse",
+        },
+    });
+
+    // Row fade-in
+    gsap.utils.toArray(".expRow").forEach((row) => {
+        gsap.from(row, {
+            opacity: 0,
+            y: 50,
+            duration: 0.9,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: row,
+                start: "top 85%",
+                toggleActions: "restart none none reverse",
+            },
+        });
+    });
+
+    // Content slide left
+    gsap.utils.toArray(".expContent").forEach((content) => {
+        gsap.from(content, {
+            opacity: 0,
+            x: -60,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: content,
+                start: "top 80%",
+                toggleActions: "restart none none reverse",
+            },
+        });
+    });
+
+    // DATE — bounce from right
+    gsap.utils.toArray(".expDate").forEach((date) => {
+        gsap.from(date, {
+            opacity: 0,
+            x: 120,
+            duration: 1.2,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+                trigger: date,
+                start: "top 85%",
+                toggleActions: "restart none none reverse",
+            },
+        });
+    });
+
+}, []);
+
     return(
-        <div id="experience" className="py-5
+        <div id="experience" className="py-5 bg-[#FFFAE8]
         2xl:py-10
         ">
             <div className="max-w-[1400px] mx-auto">
-                <h1 className="roboto-condensed font-bold text-[32px] max-w-[360px] px-4
+                <h1 className="expTitle  roboto-condensed font-bold text-[32px] max-w-[360px] px-4
                 2xl:text-[60px]
                 ">Experience & Skills</h1>
                 <div>
                     <div>
-                        <div className="flex flex-col justify-between border-b pt-4 pb-2 px-4
+                        <div className="expRow  flex flex-col justify-between border-b pt-4 pb-2 px-4
                         2xl:flex-row 2xl:pt-15
                         ">
-                            <div className="max-w-[850px]">
+                            <div className="expContent  max-w-[850px]">
                                 <h2 className="creato-bold font-bold text-[14px]
                                 2xl:text-[26px]
                                 ">Fullstack Developer at Winnicode Garuda Teknologi</h2>
@@ -23,18 +93,18 @@ export default function Experience() {
                                 2xl:text-[20px]
                                 ">HTML, CSS, Tailwind, Javascript, ReactJS, NodeJS, ExpressJS, MongoDB.</p>
                             </div>
-                            <div>
-                                <h2 className="creato-medium text-[20px]
+                            <div className="expDateWrapper">
+                                <h2 className="expDate creato-medium text-[20px]
                                 2xl:text-[48px]
                                 ">Aug 2024 - Nov 2024</h2>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <div className="flex flex-col justify-between border-b pt-4 pb-2 px-4
+                        <div className="expRow flex flex-col justify-between border-b pt-4 pb-2 px-4
                         2xl:flex-row 2xl:pt-15
                         ">
-                            <div className="max-w-[850px]">
+                            <div className="expContent max-w-[850px]">
                                 <h2 className="creato-bold font-bold text-[14px]
                                 2xl:text-[26px]
                                 ">Frontend & Backend Developer Bootcamp at Dicoding Indonesia</h2>
@@ -45,17 +115,17 @@ export default function Experience() {
                                 2xl:text-[20px]
                                 ">HTML, CSS, Javascript, NodeJS, ExpressJS, MongoDB.</p>
                             </div>
-                            <div>
-                                <h2 className="creato-medium text-[20px]
+                            <div className="expDateWrapper">
+                                <h2 className="expDate creato-medium text-[20px]
                                 2xl:text-[48px]
                                 ">Feb 2024 - Jul 2024</h2>
                             </div>
                         </div>
                     </div><div>
-                        <div className="flex flex-col justify-between border-b pt-4 pb-2 px-4
+                        <div className="expRow flex flex-col justify-between border-b pt-4 pb-2 px-4
                         2xl:flex-row 2xl:pt-15
                         ">
-                            <div className="max-w-[850px]">
+                            <div className="expContent max-w-[850px]">
                                 <h2 className="creato-bold font-bold text-[14px]
                                 2xl:text-[26px]
                                 ">Web Developer Freelance</h2>
@@ -66,8 +136,8 @@ export default function Experience() {
                                 2xl:text-[20px]
                                 ">HTML, CSS, Javascript, Typescript, ReactJS, NextJS, NodeJS, ExpressJS, NestJS, MongoDB, PostgreSQL .</p>
                             </div>
-                            <div>
-                                <h2 className="creato-medium text-[20px]
+                            <div className="expDateWrapper">
+                                <h2 className="expDate creato-medium text-[20px]
                                 2xl:text-[48px]
                                 ">Dec 2024 - Present</h2>
                             </div>

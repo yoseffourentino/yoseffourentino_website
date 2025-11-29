@@ -1,16 +1,87 @@
 import frontEnd from "../assets/front-end.png"
 import backEnd from "../assets/backend.png"
 import uiux from "../assets/ux.png"
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Services() {
+
+useGSAP(() => {
+
+    // ============================
+    // 1️⃣ Mission muncul saat discroll
+    // ============================
+    gsap.from(".mission", {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".mission",
+            start: "top 90%",
+            end: "top 70%",
+            toggleActions: "play none none reverse",
+        },
+    });
+
+    // ============================
+    // 2️⃣ Pin Title sampai cards selesai
+    // ============================
+    gsap.from(".serviceTitle", {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".serviceTitle",
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+        },
+    });
+
+    // PIN title
+    ScrollTrigger.create({
+        trigger: ".serviceTitle",
+        start: "top 50%",
+        endTrigger: ".services:last-child",
+        end: "bottom 80%",
+        pin: true,
+        pinSpacing: false,
+    });
+
+    // ============================
+    // 3️⃣ Services cards muncul satu per satu
+    // ============================
+    const cards = gsap.utils.toArray(".services");
+
+    cards.forEach((card) => {
+        gsap.from(card, {
+            opacity: 0,
+            y: 60,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+            },
+        });
+    });
+
+}, []);
+
     return (
-        <div id="services" className="py-4
+        <div id="services" className="py-4 bg-[#EBEBEB]
         2xl:py-10
         ">
             <div className="max-w-[1400px] mx-auto">
                 <div className="flex-col">
                     <div className="bg-[#3B4B4A] rounded-2xl mx-2">
-                        <p className="creato-medium text-[14px] p-4 text-justify text-white
+                        <p className="mission creato-medium text-[14px] p-4 text-justify text-white
                         2xl:text-[30px] 2xl:p-10
                         ">My mission is to provide the best service to every company and startup out there by developing websites that are engaging, interactive, and memorable. I strive to deliver excellence in order to build customer satisfaction through the products I create.</p>
                     </div>
@@ -18,13 +89,13 @@ export default function Services() {
                 <div className="my-10 flex flex-col justify-between px-4
                 lg:flex-row
                 ">
-                    <h2 className="roboto-condensed font-bold text-[2rem] max-w-[200px]
+                    <h2 className="serviceTitle roboto-condensed font-bold text-[2rem] max-w-[200px]
                     2xl:text-[60px] 2xl:max-w-[360px]
                     ">How Can I Serve You?</h2>
                     <div className="flex flex-col gap-3
                     2xl:gap-7
                     ">
-                        <div className="bg-[#FFFAE8] max-w-[900px] max-h-[230px] rounded-2xl">
+                        <div className="services bg-[#FFFAE8] max-w-[900px] max-h-[230px] rounded-2xl">
                             <div className="flex p-5 gap-4 items-start">
                                 <img src={frontEnd} alt="Front End Development" className="w-[40px] object-contain
                                 2xl:p-4 2xl:w-[100px]
@@ -42,7 +113,7 @@ export default function Services() {
                                 ">01</p>
                             </div>
                         </div>
-                        <div className="bg-[#FFFAE8] max-w-[900px] max-h-[230px] rounded-2xl">
+                        <div className="services bg-[#FFFAE8] max-w-[900px] max-h-[230px] rounded-2xl">
                             <div className="flex p-5 gap-4 items-start">
                                 <img src={backEnd} alt="Front End Development" className="w-[40px] object-contain
                                 2xl:p-4 2xl:w-[100px]
@@ -59,7 +130,7 @@ export default function Services() {
                                 2xl:text-[24px] 2xl:px-10 2xl:pb-10
                                 ">02</p>
                             </div>
-                        </div><div className="bg-[#FFFAE8] max-w-[900px] max-h-[230px] rounded-2xl">
+                        </div><div className="services bg-[#FFFAE8] max-w-[900px] max-h-[230px] rounded-2xl">
                             <div className="flex p-5 gap-4 items-start">
                                 <img src={uiux} alt="Front End Development" className="w-[40px] object-contain
                                 2xl:p-4 2xl:w-[100px]
