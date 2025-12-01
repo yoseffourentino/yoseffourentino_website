@@ -12,9 +12,6 @@ export default function Services() {
 
 useGSAP(() => {
 
-    // ============================
-    // 1️⃣ Mission muncul saat discroll
-    // ============================
     gsap.from(".mission", {
         opacity: 0,
         y: 40,
@@ -27,10 +24,6 @@ useGSAP(() => {
             toggleActions: "play none none reverse",
         },
     });
-
-    // ============================
-    // 2️⃣ Pin Title sampai cards selesai
-    // ============================
     gsap.from(".serviceTitle", {
         opacity: 0,
         y: 40,
@@ -43,7 +36,6 @@ useGSAP(() => {
         },
     });
 
-    // PIN title
     ScrollTrigger.create({
         trigger: ".serviceTitle",
         start: "top 50%",
@@ -53,9 +45,6 @@ useGSAP(() => {
         pinSpacing: false,
     });
 
-    // ============================
-    // 3️⃣ Services cards muncul satu per satu
-    // ============================
     const cards = gsap.utils.toArray(".services");
 
     cards.forEach((card) => {

@@ -9,7 +9,6 @@ export default function Experience() {
 
 useGSAP(() => {
 
-    // Title
     gsap.from(".expTitle", {
         opacity: 0,
         y: -40,
@@ -22,7 +21,6 @@ useGSAP(() => {
         },
     });
 
-    // Row fade-in
     gsap.utils.toArray(".expRow").forEach((row) => {
         gsap.from(row, {
             opacity: 0,
@@ -37,7 +35,6 @@ useGSAP(() => {
         });
     });
 
-    // Content slide left
     gsap.utils.toArray(".expContent").forEach((content) => {
         gsap.from(content, {
             opacity: 0,
@@ -52,7 +49,6 @@ useGSAP(() => {
         });
     });
 
-    // DATE — bounce from right
     gsap.utils.toArray(".expDate").forEach((date) => {
         gsap.from(date, {
             opacity: 0,

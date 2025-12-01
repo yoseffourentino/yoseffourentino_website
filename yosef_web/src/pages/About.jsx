@@ -27,9 +27,7 @@ export default function About() {
 
     ScrollTrigger.matchMedia({
 
-        // ===========================
         // DESKTOP (LG ke atas)
-        // ===========================
         "(min-width: 1024px)": () => {
 
             const panels = gsap.utils.toArray(".aboutPanel");
@@ -54,7 +52,6 @@ export default function About() {
                 },
             });
 
-            // helper animasi
             function animateHorizontal(target, vars) {
                 gsap.from(target, {
                     ...vars,
@@ -83,10 +80,7 @@ export default function About() {
             animateHorizontal(".aboutQuote3", { opacity: 0, y: 40, duration: 1 });
             animateHorizontal(".aboutGymImg", { opacity: 0, y: 50, duration: 1, stagger: 0.2 });
         },
-
-        // ===========================
         // MOBILE / TABLET (< 1024px)
-        // ===========================
         "(max-width: 1023px)": () => {
             // Matikan semua animation & scrolltrigger
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
