@@ -20,11 +20,11 @@ export default function Navbar() {
             return () => window.removeEventListener('scroll', changeBackground);
         }, []);
         
-        const logout = () => {
-            localStorage.removeItem("token");
-            localStorage.removeItem("user");
-            navigate("/login");
-        };
+        // const logout = () => {
+        //     localStorage.removeItem("token");
+        //     localStorage.removeItem("user");
+        //     navigate("/login");
+        // };
     return (
         <div className={`mx-auto sticky top-0 z-50 transition-all duration-300 ${
             scrolled ? "bg-white shadow-lg py-3" : "bg-transparent 2xl:py-7 py-4"
@@ -62,12 +62,12 @@ export default function Navbar() {
                         <p className="mx-8 cursor-pointer">Portfolio</p>
                     </Link>
                 </div>
-                {/* <div className="hidden lg:block">
+                <div className="hidden lg:block">
                     <Link to="contact" smooth={true} duration={500}>
                         <button className="contact-button">Contact</button>
                     </Link>
-                </div> */}
-                <div className="hidden lg:flex gap-5">
+                </div>
+                {/* <div className="hidden lg:flex gap-5">
                     {user && (
                     <div className="flex items-center gap-2">
                     <img src={user.image} className="w-5 rounded-full" />
@@ -78,7 +78,7 @@ export default function Navbar() {
                     onClick={logout} 
                     className=" bg-red-500 text-white px-4 py-2 rounded cursor-pointer"
                     >Logout</button>
-                </div>
+                </div> */}
 
                 {/* Mobile nav */}
                 <div
@@ -103,10 +103,10 @@ export default function Navbar() {
                     <Link to="contact" smooth={true} duration={500} onClick={() => setMenuOpen(false)}>
                         <button className="contact-button mt-2">Contact</button>
                     </Link>
-                    <button 
+                    {/* <button 
                     onClick={logout} 
                     className=" bg-red-500 text-white px-4 py-2 rounded"
-                    >Logout</button>
+                    >Logout</button> */}
                 </div>
             </nav>
         </div>
