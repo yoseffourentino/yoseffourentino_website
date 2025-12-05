@@ -8,8 +8,8 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />} />
-
+        <Route path="/" element={<Dashboard />} />
+{/* 
         <Route
           path="/home"
           element={
@@ -18,9 +18,8 @@ export default function App() {
             </ProtectedRoute>
           }
         />
-
-        {/* default route */}
-        <Route path="*" element={<Login />} />
+        <Route path="*" element={<Login />} /> */}
+      
       </Routes>
     </>
   );
